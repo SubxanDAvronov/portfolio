@@ -1,26 +1,29 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, User, FileText, Briefcase, Mail, Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "Home", href: "#home", icon: Home },
-  { name: "About", href: "#about", icon: User },
-  { name: "Resume", href: "#resume", icon: FileText },
-  { name: "Projects", href: "#projects", icon: Briefcase },
-  { name: "Contact", href: "#contact", icon: Mail },
-];
+import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
+  const navItems = [
+    { key: "home", icon: "solar:home-bold" },
+    { key: "about", icon: "solar:user-bold" },
+    { key: "resume", icon: "solar:document-bold" },
+    { key: "skills", icon: "solar:code-bold" },
+    { key: "projects", icon: "solar:widget-bold" },
+    { key: "contact", icon: "solar:letter-bold" }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Detect active section
-      const sections = navItems.map(item => item.href.substring(1));
+      const sections = navItems.map(item => item.key);
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -39,8 +42,8 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
@@ -57,43 +60,40 @@ const Navbar = () => {
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("#home");
-            }}
-            className="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300"
+          <button
+            onClick={() => scrollToSection("home")}
+            className="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300 flex items-center gap-2"
           >
+            <Icon icon="solar:code-square-bold-duotone" width={32} height={32} />
             Portfolio
-          </a>
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeSection === item.href.substring(1);
+              const isActive = activeSection === item.key;
               
               return (
                 <Button
-                  key={item.name}
+                  key={item.key}
                   variant="ghost"
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => scrollToSection(item.key)}
                   className={`group relative transition-all duration-300 ${
                     isActive
                       ? "text-primary font-semibold"
                       : "text-foreground hover:text-primary"
                   }`}
                 >
-                  <Icon className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
-                  {item.name}
+                  <Icon icon={item.icon} width={18} height={18} className="mr-2 transition-transform group-hover:scale-110" />
+                  {t(`nav.${item.key}`)}
                   {isActive && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-shift"></span>
                   )}
                 </Button>
               );
             })}
+            
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,11 +103,11 @@ const Navbar = () => {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            <Icon 
+              icon={isMobileMenuOpen ? "solar:close-square-bold" : "solar:hamburger-menu-bold"} 
+              width={24} 
+              height={24} 
+            />
           </Button>
         </div>
 
@@ -116,25 +116,28 @@ const Navbar = () => {
           <div className="md:hidden py-4 animate-fade-in-up">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = activeSection === item.href.substring(1);
+                const isActive = activeSection === item.key;
                 
                 return (
                   <Button
-                    key={item.name}
+                    key={item.key}
                     variant="ghost"
-                    onClick={() => scrollToSection(item.href)}
+                    onClick={() => scrollToSection(item.key)}
                     className={`w-full justify-start transition-all duration-300 ${
                       isActive
                         ? "bg-primary/10 text-primary font-semibold"
                         : "text-foreground hover:text-primary hover:bg-primary/5"
                     }`}
                   >
-                    <Icon className="w-4 h-4 mr-3" />
-                    {item.name}
+                    <Icon icon={item.icon} width={18} height={18} className="mr-3" />
+                    {t(`nav.${item.key}`)}
                   </Button>
                 );
               })}
+              
+              <div className="pt-4 border-t border-border">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         )}

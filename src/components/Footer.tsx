@@ -1,25 +1,41 @@
+import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react";
+
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const socials = [
+    { name: "GitHub", icon: "mdi:github", url: "#" },
+    { name: "LinkedIn", icon: "mdi:linkedin", url: "#" },
+    { name: "Twitter", icon: "mdi:twitter", url: "#" },
+    { name: "Telegram", icon: "ic:baseline-telegram", url: "#" },
+  ];
+
   return (
     <footer className="py-12 px-4 border-t border-border bg-muted/20">
       <div className="container max-w-7xl mx-auto">
         <div className="text-center space-y-4">
-          <h3 className="text-2xl font-bold gradient-text">Full Stack Developer</h3>
+          <div className="flex items-center justify-center gap-3">
+            <Icon icon="solar:code-square-bold-duotone" width={32} height={32} className="text-primary" />
+            <h3 className="text-2xl font-bold gradient-text">{t('footer.title')}</h3>
+          </div>
           <p className="text-muted-foreground">
-            Zamonaviy va professional veb ilovalar yaratish
+            {t('footer.description')}
           </p>
-          <div className="flex justify-center gap-6 pt-4">
-            {["GitHub", "LinkedIn", "Twitter", "Telegram"].map((social, index) => (
+          <div className="flex justify-center gap-4 pt-4">
+            {socials.map((social, index) => (
               <a
                 key={index}
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transform"
+                href={social.url}
+                className="w-10 h-10 rounded-lg border border-border hover:border-primary flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                aria-label={social.name}
               >
-                {social}
+                <Icon icon={social.icon} width={20} height={20} />
               </a>
             ))}
           </div>
           <div className="pt-8 text-sm text-muted-foreground">
-            © 2024 Full Stack Developer. Barcha huquqlar himoyalangan.
+            © {new Date().getFullYear()} {t('footer.title')}. {t('footer.rights')}.
           </div>
         </div>
       </div>

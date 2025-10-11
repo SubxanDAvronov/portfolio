@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Full Stack",
+    "subtitle": "Developer",
+    "description": "A developer creating modern web applications. Professional software developer working with React, Node.js, TypeScript, and other technologies.",
+    "viewProjects": "View Projects",
+    "contact": "Contact Me",
+    "experience": "Years Experience",
+    "projects": "Completed Projects",
+    "satisfaction": "Client Satisfaction"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "My story and experience",
+    "intro": "Hello! I'm a professional Full Stack Developer",
+    "description": "I specialize in creating high-quality and efficient web applications using modern web technologies. I approach each project with great attention and professionalism.",
+    "passion": "I love what I do and always strive to learn new technologies. Understanding my clients' needs and delivering results beyond their expectations is my main goal.",
+    "downloadCV": "Download CV"
+  },
+  "resume": {
+    "title": "Resume",
+    "subtitle": "My professional journey",
+    "education": "Education",
+    "experience": "Experience",
+    "senior": "Senior Full Stack Developer",
+    "seniorDesc": "Designing and developing large-scale web applications",
+    "fullstack": "Full Stack Developer",
+    "fullstackDesc": "Building complex web applications with React and Node.js",
+    "frontend": "Frontend Developer",
+    "frontendDesc": "Developing modern and responsive web pages",
+    "university": "Tashkent University of Information Technologies",
+    "degree": "Bachelor's in Computer Science",
+    "courses": "Programming Courses",
+    "webDev": "Web Development and Design"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "My technical skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools",
+    "soft": "Soft Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "My recent work",
+    "ecommerce": "E-commerce Platform",
+    "ecommerceDesc": "Full-featured online store with Next.js and Stripe",
+    "dashboard": "Analytics Dashboard",
+    "dashboardDesc": "Real-time data visualization dashboard",
+    "social": "Social Media App",
+    "socialDesc": "Social network with real-time messaging capabilities",
+    "viewProject": "View Project",
+    "sourceCode": "Source Code"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch to discuss your project",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "location": "Tashkent, Uzbekistan",
+    "social": "Social Networks",
+    "name": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "email@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Write your message...",
+    "send": "Send Message"
+  },
+  "footer": {
+    "title": "Full Stack Developer",
+    "description": "Creating modern and professional web applications",
+    "rights": "All rights reserved"
+  }
+}

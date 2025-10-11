@@ -1,56 +1,44 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
-
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "To'liq funksional onlayn do'kon tizimi React va Node.js bilan",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    gradient: "from-primary to-secondary",
-  },
-  {
-    title: "Social Media Dashboard",
-    description: "Real-time analytics va user management dashboard",
-    tags: ["TypeScript", "React", "PostgreSQL", "WebSocket"],
-    gradient: "from-secondary to-accent",
-  },
-  {
-    title: "AI Chat Application",
-    description: "Sun'iy intellekt integratsiyalangan chat ilovasi",
-    tags: ["React", "OpenAI", "Express", "Redis"],
-    gradient: "from-accent to-primary",
-  },
-  {
-    title: "Task Management System",
-    description: "Jamoalar uchun vazifalarni boshqarish platformasi",
-    tags: ["React", "Supabase", "Tailwind", "TypeScript"],
-    gradient: "from-primary to-accent",
-  },
-  {
-    title: "Real Estate Website",
-    description: "Ko'chmas mulk qidirish va bron qilish tizimi",
-    tags: ["Next.js", "PostgreSQL", "Prisma", "Maps API"],
-    gradient: "from-secondary to-primary",
-  },
-  {
-    title: "Learning Management System",
-    description: "Onlayn ta'lim platformasi video kurslari bilan",
-    tags: ["React", "Node.js", "AWS S3", "MongoDB"],
-    gradient: "from-accent to-secondary",
-  },
-];
+import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react";
 
 const Projects = () => {
+  const { t } = useTranslation();
+
+  const projects = [
+    {
+      title: t('projects.ecommerce'),
+      description: t('projects.ecommerceDesc'),
+      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      gradient: "from-primary to-secondary",
+      icon: "solar:shop-2-bold-duotone",
+    },
+    {
+      title: t('projects.dashboard'),
+      description: t('projects.dashboardDesc'),
+      tags: ["TypeScript", "React", "PostgreSQL", "Charts"],
+      gradient: "from-secondary to-accent",
+      icon: "solar:chart-2-bold-duotone",
+    },
+    {
+      title: t('projects.social'),
+      description: t('projects.socialDesc'),
+      tags: ["React", "WebSocket", "Express", "Redis"],
+      gradient: "from-accent to-primary",
+      icon: "solar:chat-dots-bold-duotone",
+    },
+  ];
+
   return (
     <section className="py-20 px-4 bg-muted/30" id="projects">
       <div className="container max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Mening <span className="gradient-text">Loyihalarim</span>
+            <span className="gradient-text">{t('projects.title')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Muvaffaqiyatli amalga oshirilgan loyihalarning ba'zilari
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -63,6 +51,9 @@ const Projects = () => {
             >
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
               <div className="p-6 space-y-4">
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${project.gradient} p-4 flex items-center justify-center mb-4`}>
+                  <Icon icon={project.icon} width={32} height={32} className="text-white" />
+                </div>
                 <h3 className="text-2xl font-bold group-hover:gradient-text transition-all duration-300">
                   {project.title}
                 </h3>
@@ -83,17 +74,17 @@ const Projects = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="flex-1 group-hover:border-primary transition-colors duration-300"
+                    className="flex-1 group-hover:border-primary transition-colors duration-300 gap-2"
                   >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
+                    <Icon icon="mdi:github" width={18} height={18} />
+                    {t('projects.sourceCode')}
                   </Button>
                   <Button
                     size="sm"
-                    className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
+                    className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white gap-2"
                   >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
+                    <Icon icon="solar:eye-bold" width={18} height={18} />
+                    {t('projects.viewProject')}
                   </Button>
                 </div>
               </div>

@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/image.png";
+import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden" id="home">
       {/* Background gradient effects */}
@@ -17,50 +21,60 @@ const Hero = () => {
           <div className="space-y-8 animate-slide-in-left">
             <div className="space-y-4">
               <h2 className="text-xl md:text-2xl font-medium text-muted-foreground">
-                Salom, Men
+                {t('hero.greeting')}
               </h2>
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                <span className="gradient-text">Full Stack</span>
+                <span className="gradient-text">{t('hero.title')}</span>
                 <br />
-                Developer
+                {t('hero.subtitle')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-                Zamonaviy veb ilovalar yaratuvchi dasturchi. React, Node.js, TypeScript va boshqa 
-                texnologiyalar bilan professional dasturiy ta'minot ishlab chiqaruvchi.
+                {t('hero.description')}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 gap-2"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Loyihalarni Ko'rish
+                <Icon icon="solar:folder-bold" width={20} height={20} />
+                {t('hero.viewProjects')}
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 border-primary/50 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                className="border-2 border-primary/50 hover:border-primary hover:bg-primary/5 transition-all duration-300 gap-2"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Bog'lanish
+                <Icon icon="solar:letter-bold" width={20} height={20} />
+                {t('hero.contact')}
               </Button>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8 pt-8 border-t border-border">
               <div>
-                <div className="text-3xl md:text-4xl font-bold gradient-text">3+</div>
-                <div className="text-sm text-muted-foreground">Yillik Tajriba</div>
+                <div className="text-3xl md:text-4xl font-bold gradient-text flex items-center gap-2">
+                  <Icon icon="solar:calendar-bold" width={32} height={32} />
+                  3+
+                </div>
+                <div className="text-sm text-muted-foreground">{t('hero.experience')}</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold gradient-text">50+</div>
-                <div className="text-sm text-muted-foreground">Tugallangan Loyihalar</div>
+                <div className="text-3xl md:text-4xl font-bold gradient-text flex items-center gap-2">
+                  <Icon icon="solar:widget-bold" width={32} height={32} />
+                  50+
+                </div>
+                <div className="text-sm text-muted-foreground">{t('hero.projects')}</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold gradient-text">100%</div>
-                <div className="text-sm text-muted-foreground">Mijozlar Mamnuniyati</div>
+                <div className="text-3xl md:text-4xl font-bold gradient-text flex items-center gap-2">
+                  <Icon icon="solar:star-bold" width={32} height={32} />
+                  100%
+                </div>
+                <div className="text-sm text-muted-foreground">{t('hero.satisfaction')}</div>
               </div>
             </div>
           </div>

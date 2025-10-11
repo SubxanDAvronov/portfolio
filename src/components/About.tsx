@@ -1,43 +1,43 @@
 import { Card } from "@/components/ui/card";
-import { Award, BookOpen, Code2, Rocket } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Code2,
-    title: "Clean Code",
-    description: "Toza va tushunarli kod yozish",
-    gradient: "from-primary to-secondary",
-  },
-  {
-    icon: Rocket,
-    title: "Fast Development",
-    description: "Tez va samarali ishlab chiqish",
-    gradient: "from-secondary to-accent",
-  },
-  {
-    icon: BookOpen,
-    title: "Continuous Learning",
-    description: "Doimiy o'rganish va rivojlanish",
-    gradient: "from-accent to-primary",
-  },
-  {
-    icon: Award,
-    title: "Quality Focus",
-    description: "Sifatga e'tibor qaratish",
-    gradient: "from-primary to-accent",
-  },
-];
+import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react";
 
 const About = () => {
+  const { t } = useTranslation();
+
+  const highlights = [
+    {
+      icon: "solar:code-2-bold-duotone",
+      title: "Clean Code",
+      gradient: "from-primary to-secondary",
+    },
+    {
+      icon: "solar:rocket-2-bold-duotone",
+      title: "Fast Development",
+      gradient: "from-secondary to-accent",
+    },
+    {
+      icon: "solar:book-bold-duotone",
+      title: "Continuous Learning",
+      gradient: "from-accent to-primary",
+    },
+    {
+      icon: "solar:medal-star-bold-duotone",
+      title: "Quality Focus",
+      gradient: "from-primary to-accent",
+    },
+  ];
+
   return (
     <section className="py-20 px-4 bg-muted/30" id="about">
       <div className="container max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Men <span className="gradient-text">Haqimda</span>
+            <span className="gradient-text">{t('about.title')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Zamonaviy texnologiyalar bilan ishlashni yaxshi ko'radigan Full Stack Developer
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -45,69 +45,40 @@ const About = () => {
           {/* Left side - Description */}
           <div className="space-y-6 animate-slide-in-left">
             <Card className="p-8 bg-card border-border hover:border-primary/50 transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-4 gradient-text">Mening Hikoyam</h3>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  Men zamonaviy veb texnologiyalari bilan ishlaydigan Full Stack Developer man. 
-                  3+ yillik tajribaga ega bo'lib, ko'plab muvaffaqiyatli loyihalarni amalga oshirganman.
-                </p>
-                <p>
-                  Frontend va Backend texnologiyalarida chuqur bilimga egaman. React, TypeScript, 
-                  Node.js, PostgreSQL va boshqa zamonaviy texnologiyalar bilan professional 
-                  darajada ishlay olaman.
-                </p>
-                <p>
-                  Har bir loyihaga kreativ yondashuv va texnik mukammallikni qo'shishga intilaaman. 
-                  Mijozlarning ehtiyojlarini tushunish va ularga eng yaxshi yechimlarni taqdim 
-                  etish mening asosiy maqsadim.
-                </p>
+              <div className="flex items-center gap-3 mb-4">
+                <Icon icon="solar:user-speak-bold-duotone" width={32} height={32} className="text-primary" />
+                <h3 className="text-2xl font-bold gradient-text">{t('about.intro')}</h3>
               </div>
+              <div className="space-y-4 text-muted-foreground">
+                <p>{t('about.description')}</p>
+                <p>{t('about.passion')}</p>
+              </div>
+              <Button className="mt-6 gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                <Icon icon="solar:download-bold" width={20} height={20} />
+                {t('about.downloadCV')}
+              </Button>
             </Card>
           </div>
 
           {/* Right side - Highlights */}
           <div className="grid sm:grid-cols-2 gap-6 animate-slide-in-right">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card
-                  key={index}
-                  className="p-6 bg-card hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer border-border hover:border-primary/50 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="space-y-4">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} p-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold mb-2">{item.title}</h4>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </div>
+            {highlights.map((item, index) => (
+              <Card
+                key={index}
+                className="p-6 bg-card hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer border-border hover:border-primary/50 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="space-y-4">
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} p-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon icon={item.icon} width={32} height={32} className="text-white" />
                   </div>
-                </Card>
-              );
-            })}
+                  <div>
+                    <h4 className="text-lg font-bold">{item.title}</h4>
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up">
-          {[
-            { value: "50+", label: "Loyihalar" },
-            { value: "30+", label: "Mijozlar" },
-            { value: "3+", label: "Yillik Tajriba" },
-            { value: "100%", label: "Mamnuniyat" },
-          ].map((stat, index) => (
-            <Card
-              key={index}
-              className="p-6 text-center bg-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border hover:border-primary/50"
-            >
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
-            </Card>
-          ))}
         </div>
       </div>
     </section>

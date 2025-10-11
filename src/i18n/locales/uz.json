@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Men haqimda",
+    "resume": "Rezyume",
+    "skills": "Ko'nikmalar",
+    "projects": "Loyihalar",
+    "contact": "Bog'lanish"
+  },
+  "hero": {
+    "greeting": "Salom, Men",
+    "title": "Full Stack",
+    "subtitle": "Developer",
+    "description": "Zamonaviy veb ilovalar yaratuvchi dasturchi. React, Node.js, TypeScript va boshqa texnologiyalar bilan professional dasturiy ta'minot ishlab chiqaruvchi.",
+    "viewProjects": "Loyihalarni Ko'rish",
+    "contact": "Bog'lanish",
+    "experience": "Yillik Tajriba",
+    "projects": "Tugallangan Loyihalar",
+    "satisfaction": "Mijozlar Mamnuniyati"
+  },
+  "about": {
+    "title": "Men Haqimda",
+    "subtitle": "Mening hikoyam va tajribam",
+    "intro": "Assalomu alaykum! Men professional Full Stack dasturchiman",
+    "description": "Men zamonaviy veb texnologiyalardan foydalanib, yuqori sifatli va samarali veb ilovalar yaratish bilan shug'ullanaman. Har bir loyihaga katta e'tibor va professional yondashuv bilan qarayman.",
+    "passion": "Men o'z ishimni yaxshi ko'raman va har doim yangi texnologiyalarni o'rganishga intilaman. Mijozlarimning ehtiyojlarini tushunish va ularning kutganidan ham yaxshiroq natija berish mening asosiy maqsadim.",
+    "downloadCV": "CV Yuklab Olish"
+  },
+  "resume": {
+    "title": "Rezyume",
+    "subtitle": "Mening professional yo'lim",
+    "education": "Ta'lim",
+    "experience": "Tajriba",
+    "senior": "Senior Full Stack Developer",
+    "seniorDesc": "Katta miqyosdagi veb ilovalarni loyihalash va ishlab chiqish",
+    "fullstack": "Full Stack Developer",
+    "fullstackDesc": "React va Node.js yordamida murakkab veb ilovalar yaratish",
+    "frontend": "Frontend Developer",
+    "frontendDesc": "Zamonaviy va responsive veb sahifalar ishlab chiqish",
+    "university": "Toshkent Axborot Texnologiyalari Universiteti",
+    "degree": "Kompyuter Fanlari bo'yicha Bakalavr",
+    "courses": "Dasturlash Kurslari",
+    "webDev": "Web Dasturlash va Dizayn"
+  },
+  "skills": {
+    "title": "Ko'nikmalar",
+    "subtitle": "Mening texnik ko'nikmalarim",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Vositalar",
+    "soft": "Yumshoq Ko'nikmalar"
+  },
+  "projects": {
+    "title": "Loyihalar",
+    "subtitle": "Mening so'nggi ishlarim",
+    "ecommerce": "E-commerce Platforma",
+    "ecommerceDesc": "To'liq funksional onlayn do'kon Next.js va Stripe bilan",
+    "dashboard": "Analytics Dashboard",
+    "dashboardDesc": "Real vaqtda ma'lumotlarni vizualizatsiya qilish paneli",
+    "social": "Ijtimoiy Media Ilovasi",
+    "socialDesc": "Real vaqtda xabar almashish imkoniyati bilan ijtimoiy tarmoq",
+    "viewProject": "Loyihani Ko'rish",
+    "sourceCode": "Manba Kodi"
+  },
+  "contact": {
+    "title": "Bog'lanish",
+    "subtitle": "Loyihangiz bo'yicha gaplashish uchun men bilan bog'laning",
+    "email": "Email",
+    "phone": "Telefon",
+    "address": "Manzil",
+    "location": "Toshkent, O'zbekiston",
+    "social": "Ijtimoiy Tarmoqlar",
+    "name": "Ismingiz",
+    "namePlaceholder": "Ismingizni kiriting",
+    "emailLabel": "Email",
+    "emailPlaceholder": "email@example.com",
+    "message": "Xabar",
+    "messagePlaceholder": "Xabaringizni yozing...",
+    "send": "Xabar Yuborish"
+  },
+  "footer": {
+    "title": "Full Stack Developer",
+    "description": "Zamonaviy va professional veb ilovalar yaratish",
+    "rights": "Barcha huquqlar himoyalangan"
+  }
+}
