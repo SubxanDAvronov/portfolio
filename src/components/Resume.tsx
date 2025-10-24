@@ -6,7 +6,7 @@ const education = [
     degree: "Bachelor's Degree in Computer Science",
     school: "Buxoro Davlat Texnika Universiteti",
     period: "2018 - 2022",
-    description: "Dasturlash, algoritm va ma'lumotlar tuzilmasi, veb texnologiyalari bo'yicha chuqur bilim olganman.",
+    description: "Dasturlash, algoritm va ma'lumotlar tuzilmasi, veb texnologiyalari bo'yicha chuqurlashtirilgan bilim.",
   },
   {
     degree: "Full Stack Development Bootcamp",
