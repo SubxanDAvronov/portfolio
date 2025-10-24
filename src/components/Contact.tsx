@@ -9,10 +9,10 @@ const Contact = () => {
   const { t } = useTranslation();
 
   const socials = [
-    { name: "GitHub", icon: "mdi:github", url: "#", color: "hover:text-[#333]" },
-    { name: "LinkedIn", icon: "mdi:linkedin", url: "#", color: "hover:text-[#0077b5]" },
-    { name: "Twitter", icon: "mdi:twitter", url: "#", color: "hover:text-[#1DA1F2]" },
-    { name: "Telegram", icon: "ic:baseline-telegram", url: "#", color: "hover:text-[#0088cc]" },
+    { name: "GitHub", icon: "mdi:github", url: "https://github.com/SubxanDAvronov", color: "hover:text-[#333]" },
+    { name: "LinkedIn", icon: "mdi:linkedin", url: "https://www.linkedin.com/in/subxoniddin-davronov-864775394/", color: "hover:text-[#0077b5]" },
+    { name: "Twitter", icon: "mdi:twitter", url: "https://x.com/Davronov2206", color: "hover:text-[#1DA1F2]" },
+    { name: "Telegram", icon: "ic:baseline-telegram", url: "https://t.me/Davronov_01s", color: "hover:text-[#0088cc]" },
   ];
 
   return (
