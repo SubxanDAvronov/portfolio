@@ -64,7 +64,7 @@ const Navbar = () => {
             onClick={() => scrollToSection("home")}
             className="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300 flex items-center gap-2"
           >
-            <Icon icon="fa7-brands:dev" width="448" height="512" />
+            
             Portfolio
           </button>
 
