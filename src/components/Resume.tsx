@@ -1,45 +1,67 @@
 import { Card } from "@/components/ui/card";
-import { useTranslation } from "react-i18next";
-import { Icon } from "@iconify/react";
+import { GraduationCap, Briefcase, Calendar } from "lucide-react";
+
+const education = [
+  {
+    degree: "Bachelor's Degree in Computer Science",
+    school: "Buxoro Davlat Texnika Universiteti",
+    period: "2018 - 2022",
+    description: "Dasturlash, algoritm va ma'lumotlar tuzilmasi, veb texnologiyalari bo'yicha chuqur bilim olganman.",
+  },
+  {
+    degree: "Full Stack Development Bootcamp",
+    school: "Online Coding Academy",
+    period: "2022",
+    description: "Zamonaviy Js texnologiyalari va eng yaxshi amaliyotlar bo'yicha intensiv ta'lim.",
+  },
+];
+
+const experience = [
+  {
+    position: "Senior Full Stack Developer",
+    company: "Tech Solutions Inc.",
+    period: "2023 - Hozir",
+    description: "Katta miqyosdagi veb ilovalarni ishlab chiqish va jamoa boshqaruvi.",
+    achievements: [
+      "5+ ta muvaffaqiyatli loyihani yetkazib berish",
+      "Kodni optimallashtirish natijasida 40% tezlashish",
+      "Junior dasturchilarni mentorligi",
+    ],
+  },
+  {
+    position: "Full Stack Developer",
+    company: "Digital Agency Pro",
+    period: "2022 - 2023",
+    description: "Mijozlar uchun turli xil veb ilovalar va saytlar yaratish.",
+    achievements: [
+      "15+ ta mijoz loyihalarini yakunlash",
+      "React va Node.js texnologiyalarini qo'llash",
+      "API integratsiyalar va database dizayni",
+    ],
+  },
+  {
+    position: "Frontend Developer",
+    company: "StartUp Ventures",
+    period: "2021 - 2022",
+    description: "Foydalanuvchi interfeyslari va responsive dizaynlar yaratish.",
+    achievements: [
+      "10+ ta landing page yaratish",
+      "UI/UX yaxshilash bo'yicha ishlash",
+      "Cross-browser muvofiqligi ta'minlash",
+    ],
+  },
+];
 
 const Resume = () => {
-  const { t } = useTranslation();
-
-  const education = [
-    {
-      period: "2018 - 2022",
-      icon: "solar:diploma-bold-duotone"
-    },
-    {
-      period: "2022",
-      icon: "solar:code-circle-bold-duotone"
-    },
-  ];
-
-  const experience = [
-    {
-      period: "2023 - " + new Date().getFullYear(),
-      icon: "solar:star-bold-duotone"
-    },
-    {
-      period: "2022 - 2023",
-      icon: "solar:widget-2-bold-duotone"
-    },
-    {
-      period: "2021 - 2022",
-      icon: "solar:programming-bold-duotone"
-    },
-  ];
-
   return (
     <section className="py-20 px-4" id="resume">
       <div className="container max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold">
-            <span className="gradient-text">{t('resume.title')}</span>
+            Mening <span className="gradient-text">Rezyumem</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('resume.subtitle')}
+            Ta'lim va ish tajribam haqida ma'lumot
           </p>
         </div>
 
@@ -48,9 +70,9 @@ const Resume = () => {
           <div className="space-y-8 animate-slide-in-left">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <Icon icon="solar:graduation-bold" width={24} height={24} className="text-white" />
+                <GraduationCap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold">{t('resume.education')}</h3>
+              <h3 className="text-2xl font-bold">Ta'lim</h3>
             </div>
 
             <div className="space-y-6">
@@ -60,22 +82,14 @@ const Resume = () => {
                   className="p-6 bg-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-primary"
                 >
                   <div className="flex items-start gap-3 mb-3">
-                    <Icon icon="solar:calendar-bold-duotone" width={20} height={20} className="text-primary mt-1" />
+                    <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                     <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
                       {item.period}
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Icon icon={item.icon} width={24} height={24} className="text-primary mt-1" />
-                    <div>
-                      <h4 className="text-xl font-bold mb-2">
-                        {index === 0 ? t('resume.university') : t('resume.courses')}
-                      </h4>
-                      <p className="text-muted-foreground font-medium mb-3">
-                        {index === 0 ? t('resume.degree') : t('resume.webDev')}
-                      </p>
-                    </div>
-                  </div>
+                  <h4 className="text-xl font-bold mb-2">{item.degree}</h4>
+                  <p className="text-muted-foreground font-medium mb-3">{item.school}</p>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
                 </Card>
               ))}
             </div>
@@ -85,9 +99,9 @@ const Resume = () => {
           <div className="space-y-8 animate-slide-in-right">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-                <Icon icon="solar:case-round-bold" width={24} height={24} className="text-white" />
+                <Briefcase className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold">{t('resume.experience')}</h3>
+              <h3 className="text-2xl font-bold">Ish Tajribasi</h3>
             </div>
 
             <div className="space-y-6">
@@ -97,21 +111,22 @@ const Resume = () => {
                   className="p-6 bg-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-secondary"
                 >
                   <div className="flex items-start gap-3 mb-3">
-                    <Icon icon="solar:calendar-bold-duotone" width={20} height={20} className="text-secondary mt-1" />
+                    <Calendar className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                     <span className="text-sm font-semibold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
                       {item.period}
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Icon icon={item.icon} width={24} height={24} className="text-secondary mt-1" />
-                    <div>
-                      <h4 className="text-xl font-bold mb-2">
-                        {index === 0 ? t('resume.senior') : index === 1 ? t('resume.fullstack') : t('resume.frontend')}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {index === 0 ? t('resume.seniorDesc') : index === 1 ? t('resume.fullstackDesc') : t('resume.frontendDesc')}
-                      </p>
-                    </div>
+                  <h4 className="text-xl font-bold mb-2">{item.position}</h4>
+                  <p className="text-muted-foreground font-medium mb-3">{item.company}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
+                  
+                  <div className="space-y-2">
+                    {item.achievements.map((achievement, achIndex) => (
+                      <div key={achIndex} className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-secondary mt-2 flex-shrink-0"></div>
+                        <p className="text-sm text-muted-foreground">{achievement}</p>
+                      </div>
+                    ))}
                   </div>
                 </Card>
               ))}
