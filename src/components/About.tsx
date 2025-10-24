@@ -93,9 +93,9 @@ const About = () => {
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up">
           {[
-            { value: "50+", label: "Loyihalar" },
-            { value: "30+", label: "Mijozlar" },
-            { value: "3+", label: "Yillik Tajriba" },
+            { value: "15+", label: "Loyihalar" },
+            { value: "9+", label: "Mijozlar" },
+            { value: "1.5+", label: "Yillik Tajriba" },
             { value: "100%", label: "Mamnuniyat" },
           ].map((stat, index) => (
             <Card

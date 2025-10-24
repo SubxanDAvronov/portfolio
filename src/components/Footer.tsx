@@ -5,10 +5,10 @@ const Footer = () => {
   const { t } = useTranslation();
 
   const socials = [
-    { name: "GitHub", icon: "mdi:github", url: "#" },
-    { name: "LinkedIn", icon: "mdi:linkedin", url: "#" },
-    { name: "Twitter", icon: "mdi:twitter", url: "#" },
-    { name: "Telegram", icon: "ic:baseline-telegram", url: "#" },
+    { name: "GitHub", icon: "mdi:github", url: "https://github.com/SubxanDAvronov" },
+    { name: "LinkedIn", icon: "mdi:linkedin", url: "https://www.linkedin.com/in/subxoniddin-davronov-864775394/" },
+    { name: "Twitter", icon: "mdi:twitter", url: "https://x.com/Davronov2206" },
+    { name: "Telegram", icon: "ic:baseline-telegram", url: "https://t.me/Davronov_01s" },
   ];
 
   return (
