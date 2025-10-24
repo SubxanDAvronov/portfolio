@@ -5,7 +5,7 @@ const highlights = [
   {
     icon: Code2,
     title: "Clean Code",
-    description: "Toza va tushunarli kod yozish",
+    description: "Aniq va tushunarli kod yozish",
     gradient: "from-primary to-secondary",
   },
   {
