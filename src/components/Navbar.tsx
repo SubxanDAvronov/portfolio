@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
+import { useTheme } from "next-themes";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const { t } = useTranslation();
+  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -93,6 +95,19 @@ const Navbar = () => {
               );
             })}
             
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="transition-transform hover:scale-110"
+            >
+              <Icon 
+                icon={theme === "dark" ? "solar:sun-bold" : "solar:moon-bold"} 
+                width={20} 
+                height={20} 
+              />
+            </Button>
+            
             <LanguageSwitcher />
           </div>
 
@@ -135,8 +150,20 @@ const Navbar = () => {
                 );
               })}
               
-              <div className="pt-4 border-t border-border">
+              <div className="pt-4 border-t border-border flex items-center justify-between gap-2">
                 <LanguageSwitcher />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="transition-transform hover:scale-110"
+                >
+                  <Icon 
+                    icon={theme === "dark" ? "solar:sun-bold" : "solar:moon-bold"} 
+                    width={20} 
+                    height={20} 
+                  />
+                </Button>
               </div>
             </div>
           </div>
