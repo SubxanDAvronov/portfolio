@@ -4,9 +4,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Contact = () => {
   const { t } = useTranslation();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
   const socials = [
     { name: "GitHub", icon: "mdi:github", url: "https://github.com/SubxanDAvronov", color: "hover:text-[#333]" },
@@ -14,6 +24,40 @@ const Contact = () => {
     { name: "Twitter", icon: "mdi:twitter", url: "https://x.com/Davronov2206", color: "hover:text-[#1DA1F2]" },
     { name: "Telegram", icon: "ic:baseline-telegram", url: "https://t.me/Davronov_01s", color: "hover:text-[#0088cc]" },
   ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          recipientEmail: "little.picasso.01s@gmail.com" // Sizning emailingiz
+        }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: t('contact.successTitle') || "Xabar yuborildi!",
+        description: t('contact.successMessage') || "Tez orada siz bilan bog'lanamiz.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: t('contact.errorTitle') || "Xatolik",
+        description: t('contact.errorMessage') || "Xabar yuborishda xatolik yuz berdi. Iltimos qayta urinib ko'ring.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section className="py-20 px-4" id="contact">
@@ -85,7 +129,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <Card className="p-8 animate-slide-in-right">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <Icon icon="solar:user-bold" width={18} height={18} />
@@ -94,6 +138,9 @@ const Contact = () => {
                 <Input
                   placeholder={t('contact.namePlaceholder')}
                   className="border-border focus:border-primary transition-colors duration-300"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
                 />
               </div>
 
@@ -106,6 +153,9 @@ const Contact = () => {
                   type="email"
                   placeholder={t('contact.emailPlaceholder')}
                   className="border-border focus:border-primary transition-colors duration-300"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
                 />
               </div>
 
@@ -118,6 +168,9 @@ const Contact = () => {
                   placeholder={t('contact.messagePlaceholder')}
                   rows={6}
                   className="border-border focus:border-primary transition-colors duration-300 resize-none"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
                 />
               </div>
 
@@ -125,9 +178,10 @@ const Contact = () => {
                 type="submit"
                 size="lg"
                 className="w-full bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-white shadow-lg hover:shadow-xl transition-all duration-300 gap-2"
+                disabled={isSubmitting}
               >
                 <Icon icon="solar:plain-3-bold" width={20} height={20} />
-                {t('contact.send')}
+                {isSubmitting ? t('contact.sending') || "Yuborilmoqda..." : t('contact.send')}
               </Button>
             </form>
           </Card>

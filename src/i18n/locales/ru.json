@@ -76,7 +76,12 @@
     "emailPlaceholder": "email@example.com",
     "message": "Сообщение",
     "messagePlaceholder": "Напишите ваше сообщение...",
-    "send": "Отправить сообщение"
+    "send": "Отправить сообщение",
+    "sending": "Отправка...",
+    "successTitle": "Сообщение отправлено!",
+    "successMessage": "Мы скоро свяжемся с вами.",
+    "errorTitle": "Ошибка",
+    "errorMessage": "Не удалось отправить сообщение. Пожалуйста, попробуйте еще раз."
   },
   "footer": {
     "title": "Full Stack разработчик",

@@ -76,7 +76,12 @@
     "emailPlaceholder": "email@example.com",
     "message": "Message",
     "messagePlaceholder": "Write your message...",
-    "send": "Send Message"
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message sent!",
+    "successMessage": "We'll get back to you soon.",
+    "errorTitle": "Error",
+    "errorMessage": "Failed to send message. Please try again."
   },
   "footer": {
     "title": "Full Stack Developer",

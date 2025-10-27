@@ -76,7 +76,12 @@
     "emailPlaceholder": "email@example.com",
     "message": "Xabar",
     "messagePlaceholder": "Xabaringizni yozing...",
-    "send": "Xabar Yuborish"
+    "send": "Xabar Yuborish",
+    "sending": "Yuborilmoqda...",
+    "successTitle": "Xabar yuborildi!",
+    "successMessage": "Tez orada siz bilan bog'lanamiz.",
+    "errorTitle": "Xatolik",
+    "errorMessage": "Xabar yuborishda xatolik yuz berdi. Iltimos qayta urinib ko'ring."
   },
   "footer": {
     "title": "Full Stack Developer",
