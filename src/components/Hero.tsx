@@ -55,7 +55,7 @@ const Hero = () => {
                 <div className="text-sm text-muted-foreground">Yillik Tajriba</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold gradient-text">15+</div>
+                <div className="text-3xl md:text-4xl font-bold gradient-text">17+</div>
                 <div className="text-sm text-muted-foreground">Tugallangan Loyihalar</div>
               </div>
               <div>
