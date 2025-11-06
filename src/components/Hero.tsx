@@ -25,8 +25,8 @@ const Hero = () => {
                 Developer
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-                Zamonaviy veb ilovalar yaratuvchi dasturchi. React, Node.js, TypeScript va boshqa 
-                texnologiyalar bilan professional dasturiy ta'minot ishlab chiqaruvchi.
+                Zamonaviy veb ilovalar yaratuvchisi. React, Node.js, TypeScript va boshqa 
+                texnologiyalar bilan professional dasturiy ta'minot ishlab chiqaruvchisiman.
               </p>
             </div>
 
